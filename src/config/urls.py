@@ -30,7 +30,8 @@ urlpatterns = [
         'accounts/register/', 
         RegistrationView.as_view(form_class=CustomUserRegistrationForm, success_url = "/"), 
         name='django_registration_register'),
-
     path('accounts/', include('django.contrib.auth.urls')), # Django's built-in auth URLs for login/logout
+
+    path('api/v1/', include('questions.api.urls')),  # API URLs for questions app
     path('', IndexTemplateView.as_view(), name='entrypoint'),  # Home page
 ]

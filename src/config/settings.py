@@ -45,6 +45,8 @@ INSTALLED_APPS = [
 
     # My apps
     'users',  # User management app
+    'core',
+    'questions',  # Questions app
 ]
 
 MIDDLEWARE = [
