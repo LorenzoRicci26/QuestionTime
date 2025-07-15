@@ -1,4 +1,6 @@
 @import 'primeicons/primeicons.css';
+@import "tailwindcss";
+@import "tailwindcss-primeui";
 
 @font-face {
   font-family: 'Inter';
@@ -8,5 +10,6 @@
 }
 
 body{
+  padding: 0.5%;
   font-family: 'Inter', sans-serif;
 }

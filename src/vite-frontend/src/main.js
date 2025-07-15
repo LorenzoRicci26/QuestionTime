@@ -59,16 +59,17 @@ const Noir = definePreset(Aura, {
     }
 });
 
-
 app.use(createPinia())
 app.use(router)
 app.use(PrimeVue, {
     theme: {
         preset: Noir,
         options: {
-            prefix: 'p',
-            darkModeSelector: 'light',
-            cssLayer: false
+            darkModeSelector: '.my-app-dark',
+            cssLayer: {
+                name: 'primevue',
+                order: 'theme, base, primevue'
+            }
         }
     }
 });

@@ -1,12 +1,16 @@
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/config/build-options.html#build-manifest
 // https://vitejs.dev/config/build-options.html#build-emptyoutdir
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    tailwindcss(),
+  ],
   build: {
     manifest: true,
     outDir: "../static/build/",
