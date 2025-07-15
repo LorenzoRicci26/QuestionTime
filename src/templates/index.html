@@ -1,14 +1,15 @@
+{% load render_vite_assets %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Question Time</title>
+    {% render_vite_assets %}
 <body>
-    <h1>Single Page Application</h1>
-    <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
+    <noscript>
+        <p> Abilitare Javascript per usare l'applicazione </p>
+    </noscript>
+    <div id='app'></div>
 </body>
 </html>
