@@ -1,13 +1,16 @@
 <script setup>
-    import { Menu, Badge, Avatar } from 'primevue';
-    import { ref } from "vue";
+import { Menu, Badge, Avatar } from 'primevue';
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+    
+const router = useRouter();
 
 const items = ref([
     {
         separator: true
     },
     {
-        label: 'Documents',
+        label: 'Questions',
         items: [
             {
                 label: 'New',
@@ -15,9 +18,12 @@ const items = ref([
                 shortcut: '⌘+N'
             },
             {
-                label: 'Search',
+                label: 'List',
                 icon: 'pi pi-search',
-                shortcut: '⌘+S'
+                shortcut: '⌘+S',
+                command: () => {
+                    router.push('/home');
+                }
             }
         ]
     },
@@ -62,7 +68,7 @@ const items = ref([
                     <span class="text-primary font-bold">{{ item.label }}</span>
                 </template>
                 <template #item="{ item, props }">
-                    <a v-ripple class="flex items-center" v-bind="props.action">
+                    <a class="flex items-center" v-bind="props.action">
                         <span :class="item.icon" />
                         <span>{{ item.label }}</span>
                         <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
@@ -70,7 +76,7 @@ const items = ref([
                     </a>
                 </template>
                 <template #end>
-                    <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
+                    <button class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-1 pl-4 hover:bg-surface-100 rounded cursor-pointer transition-colors duration-200">
                         <Avatar image="/avatar.svg" class="mr-2" shape="circle" size="xlarge"/>
                         <span class="inline-flex flex-col items-start">
                             <span class="font-bold">Lorenzo Ricci</span>

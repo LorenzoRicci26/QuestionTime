@@ -1,15 +1,25 @@
 <script setup>
-  import { RouterView, RouterLink } from 'vue-router'
+  import { RouterView } from 'vue-router'
   import NavBarComponent from './components/NavBarComponent.vue'
 </script>
 
 <template>
-  <header>
-    <NavBarComponent />
-    <div class="wrapper">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </div>
-  </header>
-  <RouterView />
+  <div class="flex">
+    <aside>
+      <NavBarComponent />
+    </aside>
+    <main class="main-content">
+      <RouterView />
+    </main>
+  </div>
 </template>
+
+<style setup>
+.main-content {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #ffffff;
+}
+</style>
